@@ -8,16 +8,8 @@ import SimpleDialog from "./components/simpleDialog";
 import ImgMediaCard from "./components/imgMediaCard";
 import { Grid } from "@mui/material";
 
-interface Caminho {
-  title: string;
-  short_description: string;
-  description: string[];
-  youtubeId: string;
-  caminho: any;
-  img: string;
-  extras_description: string;
-  extras: any;
-}
+import { Caminho } from "../common/types";
+
 
 const caminhos: Caminho[] = [
   {

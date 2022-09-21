@@ -9,22 +9,15 @@ import {
   Link,
   Container,
 } from "@mui/material";
+
 import CloseIcon from "@mui/icons-material/Close";
 
 import YoutubeVideo from "./youtube";
 
 import styles from "../../styles/Dialog.module.css";
 
-interface Caminho {
-  title: string;
-  link: string;
-}
+import { Checkpoint, SimpleDialogProps } from "../../common/types";
 
-export interface SimpleDialogProps {
-  open: boolean;
-  selectedValue: any;
-  onClose: () => void;
-}
 
 function SimpleDialog(props: SimpleDialogProps) {
   const { onClose, selectedValue, open } = props;
@@ -33,7 +26,7 @@ function SimpleDialog(props: SimpleDialogProps) {
     onClose();
   };
 
-  return (
+  return selectedValue && (
     <Dialog fullScreen onClose={handleClose} open={open}>
       <AppBar color="transparent" sx={{ position: "relative" }}>
         <Toolbar>
@@ -59,11 +52,11 @@ function SimpleDialog(props: SimpleDialogProps) {
         <Typography variant="h6" className={styles.title}>
           Caminho
         </Typography> 
-        {selectedValue.caminho.map((caminho: Caminho, index: number) => (
+        {selectedValue.caminho.map((checkpoint: Checkpoint, index: number) => (
           <Typography key={index + 1} className={styles.typography}>
             {index + 1}.{" "}
-            <Link href={caminho.link} target="_blank" rel="noopener">
-              {caminho.title}
+            <Link href={checkpoint.link} target="_blank" rel="noopener">
+              {checkpoint.title}
             </Link>
           </Typography>
         ))}
@@ -85,11 +78,11 @@ function SimpleDialog(props: SimpleDialogProps) {
           {selectedValue.extras_description}
         </Typography>
 
-        {selectedValue.extras.map((caminho: Caminho, index: number) => (
+        {selectedValue.extras.map((checkpoint: Checkpoint, index: number) => (
           <Typography key={index + 1} className={styles.typography}>
             {index + 1}.{" "}
-            <Link href={caminho.link} target="_blank" rel="noopener">
-              {caminho.title}
+            <Link href={checkpoint.link} target="_blank" rel="noopener">
+              {checkpoint.title}
             </Link>
           </Typography>
         ))}
