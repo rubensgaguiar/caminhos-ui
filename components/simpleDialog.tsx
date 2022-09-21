@@ -14,9 +14,9 @@ import CloseIcon from "@mui/icons-material/Close";
 
 import YoutubeVideo from "./youtube";
 
-import styles from "../../styles/Dialog.module.css";
+import styles from "../styles/Dialog.module.css";
 
-import { Checkpoint, SimpleDialogProps } from "../../common/types";
+import { Checkpoint, SimpleDialogProps } from "../common/types";
 
 
 function SimpleDialog(props: SimpleDialogProps) {

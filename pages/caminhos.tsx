@@ -4,8 +4,8 @@ import Head from "next/head";
 
 import styles from "../styles/Home.module.css";
 
-import SimpleDialog from "./components/simpleDialog";
-import ImgMediaCard from "./components/imgMediaCard";
+import SimpleDialog from "../components/simpleDialog";
+import ImgMediaCard from "../components/imgMediaCard";
 import { Grid } from "@mui/material";
 
 import { Caminho } from "../common/types";

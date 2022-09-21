@@ -2,7 +2,7 @@ import type { NextPage } from 'next'
 import Head from 'next/head'
 import styles from '../styles/Home.module.css'
 
-import SignUp from "./components/signup";
+import SignUp from "../components/signup";
 
 const Checkout: NextPage = () => {
   return (

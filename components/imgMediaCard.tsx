@@ -5,7 +5,7 @@ import CardMedia from "@mui/material/CardMedia";
 import Typography from "@mui/material/Typography";
 import { CardActionArea, Grid } from "@mui/material";
 
-import styles from "../../styles/Home.module.css";
+import styles from "../styles/Home.module.css";
 
 export interface MultiActionAreaCardProps {
   title: string;
