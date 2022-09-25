@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import type { NextPage } from "next";
 import Head from "next/head";
+import { useRouter } from "next/router";
 
 import styles from "../styles/Home.module.css";
 
@@ -9,6 +10,7 @@ import ImgMediaCard from "../components/imgMediaCard";
 import { Grid } from "@mui/material";
 
 import { Caminho } from "../common/types";
+import { useUserStore } from "../store/store";
 
 
 const caminhos: Caminho[] = [
@@ -493,6 +495,20 @@ const caminhos: Caminho[] = [
 ];
 
 const Caminhos: NextPage = () => {
+  // TODO: when user get caminhos page, this content of page appear quickly and, then, desappear, but
+  // if user press ESC quickly it will can see the page content even if the user is not logged.
+  // This is solvable if we do a user verification before page render, but the next js is so annoying
+  // about this approach, so we need to research the right way to do this user verification.
+
+  const router = useRouter();
+  const user = useUserStore((state: any) => state.user);
+
+  useEffect(() => {
+    if (!user) {
+      router.push("/");
+    }  
+  }, [user, router])
+
   const [open, setOpen] = useState(false);
   const [selectedValue, setSelectedValue] = useState(caminhos[0]);
 
