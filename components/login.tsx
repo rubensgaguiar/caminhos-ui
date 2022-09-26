@@ -18,11 +18,11 @@ const Login = () => {
   };
 
   const handleEmail = (event) => {
-    setEmail(event.value.target);
+    setEmail(event.target.value);
   };
 
   const handlePassword = (event) => {
-    setPassword(event.value.target);
+    setPassword(event.target.value);
   };
 
   const getUser = async () => {
@@ -34,13 +34,14 @@ const Login = () => {
       }),
     });
 
-    return response.json();
+    // return response.json();
 
-    // return {
-    //   userId: "123",
-    //   email: "123",
-    //   status: "paid"
-    // };
+    return {
+      userId: "123",
+      email: "123",
+      payment_status: "paid",
+      token: "Bearer 123"
+    };
   };
 
   const handleLogin = () => {
@@ -48,9 +49,14 @@ const Login = () => {
       .then((res) => {
         setUser({
           userId: res.userId,
+          token: res.token,
           email: res.email,
-          status: res.status,
+          status: res.payment_status,
         });
+
+        if (res.payment_status !== "paid") {
+          // redirect to checkout
+        }
 
         router.push("/caminhos");
       })
@@ -71,6 +77,7 @@ const Login = () => {
         <TextField
           id="outlined-basic"
           label="Senha"
+          type="password"
           variant="outlined"
           onChange={handlePassword}
         />

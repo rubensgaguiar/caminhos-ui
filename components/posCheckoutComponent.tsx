@@ -26,9 +26,17 @@ const PosCheckoutComponent = () => {
     // REQUEST EXEMPLO: curl https://api.stripe.com/v1/checkout/sessions/cs_test_a15HZMxTo1aSsDhwKvKku7Kzi2pjRFYJ4D5goKB7Y3Kv0SwyJfWQMnJj1d -u sk_test_51HqiHpFm7x7XSTxAXGegtstsdrB3MJKlfwrfxGdZN8AfLJTdSm5QyHqbOQr3IO40uPenLpNG70LrCeNsynXNh0b500Chtup5xE:
     // captura as informaçoes recebidas, salva na DB e ativa o usuário
     // retorna ao front o client_reference_id e um payment_status
+    const response = await fetch("/confirm_checkout", {
+      method: "POST",
+      body: JSON.stringify({
+        sessionId: sessionId
+      }),
+    });
+
+    // return response.json();
+
     return {
-      client_reference_id: "123",
-      payment_status: "paid",
+      payment_status: "paid"
     };
   };
 
@@ -36,21 +44,17 @@ const PosCheckoutComponent = () => {
     // criar um useEffect que captura o sessionId
     const { sessionId } = router.query;
 
-    getClientId(sessionId)
+    if (sessionId) {
+      getClientId(sessionId)
       .then((res) => {
         if (res.payment_status === "paid") {
           setPaymentStatus(PAYMENT.Success);
         } else {
           setPaymentStatus(PAYMENT.Fail);
         }
-
-        setUser({
-          userId: "1",
-          email: "1",
-          status: res.payment_status
-        });
       })
       .catch((err) => setPaymentStatus(PAYMENT.Fail));
+    }
   }, [router, setUser]);
 
   const handleCaminhosButton = () => {
