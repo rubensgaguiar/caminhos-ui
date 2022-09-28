@@ -9,14 +9,27 @@ import {
   Link,
   Container,
 } from "@mui/material";
-
 import CloseIcon from "@mui/icons-material/Close";
+import { styled } from '@mui/material/styles';
 
 import YoutubeVideo from "./youtube";
 
 import styles from "../styles/Dialog.module.css";
 
 import { Checkpoint, SimpleDialogProps } from "../common/types";
+
+const TitleTypography = styled(Typography)({
+  marginTop: 32,
+});
+
+const TextTypography = styled(Typography)({
+  marginTop: 8,
+});
+
+const ContainerCaminho = styled(Container)({
+  marginTop: 16,
+  marginBottom: 16,
+});
 
 
 function SimpleDialog(props: SimpleDialogProps) {
@@ -44,49 +57,49 @@ function SimpleDialog(props: SimpleDialogProps) {
         </Toolbar>
       </AppBar>
 
-      <Container maxWidth="md" className={styles.container}>
+      <ContainerCaminho maxWidth="md">
         <YoutubeVideo
           title={selectedValue.title}
           videoId={selectedValue.youtubeId}
         />
-        <Typography variant="h6" className={styles.title}>
+        <TitleTypography variant="h6">
           Caminho
-        </Typography> 
+        </TitleTypography> 
         {selectedValue.caminho.map((checkpoint: Checkpoint, index: number) => (
-          <Typography key={index + 1} className={styles.typography}>
+          <TextTypography key={index + 1}>
             {index + 1}.{" "}
             <Link href={checkpoint.link} target="_blank" rel="noopener">
               {checkpoint.title}
             </Link>
-          </Typography>
+          </TextTypography>
         ))}
-        <Typography variant="h6" className={styles.title}>
+        <TitleTypography variant="h6">
           Descrição
-        </Typography> 
+        </TitleTypography> 
         {selectedValue.description.map((paragraph: string) => (
-          <Typography key={0} className={styles.typography}>
+          <TextTypography key={0}>
             {paragraph}
-          </Typography>
+          </TextTypography>
         ))}
         {
           selectedValue.extras.length > 0 &&
-            <Typography variant="h6" className={styles.title}>
+            <TitleTypography variant="h6">
               Extras
-            </Typography>
+            </TitleTypography>
         }
-        <Typography className={styles.typography}>
+        <TextTypography>
           {selectedValue.extras_description}
-        </Typography>
+        </TextTypography>
 
         {selectedValue.extras.map((checkpoint: Checkpoint, index: number) => (
-          <Typography key={index + 1} className={styles.typography}>
+          <TextTypography key={index + 1}>
             {index + 1}.{" "}
             <Link href={checkpoint.link} target="_blank" rel="noopener">
               {checkpoint.title}
             </Link>
-          </Typography>
+          </TextTypography>
         ))}
-      </Container>
+      </ContainerCaminho>
     </Dialog>
   );
 }

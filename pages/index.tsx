@@ -1,10 +1,19 @@
+import React, { useEffect } from "react";
+import { useRouter } from "next/router";
 import type { NextPage } from "next";
 import Head from "next/head";
+
+import { useUserStore } from "../store/store";
+import Login from "../components/login";
 import styles from "../styles/Home.module.css";
 
-import Login from "../components/login";
-
 const HomePage: NextPage = () => {
+  const router = useRouter();
+  const user = useUserStore((state: any) => state.user);
+  useEffect(() => {
+    user && router.push("/caminhos")
+  }, [user, router]);
+
   return (
     <div className={styles.container}>
       <Head>
