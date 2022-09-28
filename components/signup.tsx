@@ -1,8 +1,10 @@
 import React, { FunctionComponent, useState } from "react";
 
+import { useRouter } from "next/router";
+
 import { Button, Grid, TextField } from "@mui/material";
 
-import { useRouter } from "next/router";
+import { redirectToCheckout } from "../utils/checkout";
 
 const SignUp: FunctionComponent = () => {
   const router = useRouter();
@@ -18,25 +20,24 @@ const SignUp: FunctionComponent = () => {
     setPassword(event.target.value);
   };
 
-  const redirectToCheckout = (id: string, email: string) => {
-    window.location.href = `https://buy.stripe.com/test_cN29D2gM05yL6vC3cc?prefilled_email=${email}&client_reference_id=${id}`;
-  };
-
   const signup = async () => {
-    const response = await fetch("/signup", {
+    const response = await fetch(process.env.BACKEND_URL + "/core/signup", {
       method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
       body: JSON.stringify({
         email: email,
         password: password,
       }),
     });
 
-    // return response.json();
+    return response.json();
 
-    return {
-      id: "123",
-      email: "asas%40asda.com",
-    };
+    // return {
+    //   id: "123",
+    //   email: "asas%40asda.com",
+    // };
   };
 
   const handleSignup = () => {

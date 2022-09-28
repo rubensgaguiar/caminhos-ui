@@ -26,18 +26,21 @@ const PosCheckoutComponent = () => {
     // REQUEST EXEMPLO: curl https://api.stripe.com/v1/checkout/sessions/cs_test_a15HZMxTo1aSsDhwKvKku7Kzi2pjRFYJ4D5goKB7Y3Kv0SwyJfWQMnJj1d -u sk_test_51HqiHpFm7x7XSTxAXGegtstsdrB3MJKlfwrfxGdZN8AfLJTdSm5QyHqbOQr3IO40uPenLpNG70LrCeNsynXNh0b500Chtup5xE:
     // captura as informaçoes recebidas, salva na DB e ativa o usuário
     // retorna ao front o client_reference_id e um payment_status
-    const response = await fetch("/confirm_checkout", {
+    const response = await fetch(process.env.BACKEND_URL + "/core/confirm_checkout", {
       method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
       body: JSON.stringify({
-        sessionId: sessionId
+        session_id: sessionId
       }),
     });
 
-    // return response.json();
+    return response.json();
 
-    return {
-      payment_status: "paid"
-    };
+    // return {
+    //   payment_status: "paid"
+    // };
   };
 
   useEffect(() => {

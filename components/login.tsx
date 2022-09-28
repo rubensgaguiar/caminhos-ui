@@ -5,6 +5,7 @@ import { Button, Grid, TextField } from "@mui/material";
 import { useRouter } from "next/router";
 
 import { useUserStore } from "../store/store";
+import { redirectToCheckout } from "../utils/checkout";
 
 const Login = () => {
   const router = useRouter();
@@ -26,37 +27,41 @@ const Login = () => {
   };
 
   const getUser = async () => {
-    const response = await fetch("/login", {
+    const response = await fetch(process.env.BACKEND_URL + "/core/login", {
       method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
       body: JSON.stringify({
         email: email,
         password: password,
       }),
     });
 
-    // return response.json();
+    return response.json();
 
-    return {
-      userId: "123",
-      email: "123",
-      payment_status: "paid",
-      token: "Bearer 123"
-    };
+    // return {
+    //   userId: "123",
+    //   email: "123",
+    //   payment_status: "paid",
+    //   token: "Bearer 123"
+    // };
   };
 
   const handleLogin = () => {
     getUser()
       .then((res) => {
+        if (res.payment_status !== "paid") {
+          // redirect to checkout
+          redirectToCheckout(res.id, res.email)
+          return;
+        }
+
         setUser({
-          userId: res.userId,
-          token: res.token,
+          id: res.id,
           email: res.email,
           status: res.payment_status,
         });
-
-        if (res.payment_status !== "paid") {
-          // redirect to checkout
-        }
 
         router.push("/caminhos");
       })

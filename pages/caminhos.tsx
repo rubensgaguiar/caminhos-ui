@@ -520,6 +520,7 @@ const Caminhos: NextPage = () => {
 
   const router = useRouter();
   const user = useUserStore((state: any) => state.user);
+  const setUser = useUserStore((state: any) => state.setUser);
 
   useEffect(() => {
     if (!user) {
@@ -539,10 +540,11 @@ const Caminhos: NextPage = () => {
   };
 
   const logout = async () => {
-    fetch("/logout", {
+    fetch(process.env.BACKEND_URL + "/core/logout", {
       method: "GET",
     }).then((res) => {
       if (res.ok) {
+        setUser(undefined);
         router.push("/");
       }
     })
