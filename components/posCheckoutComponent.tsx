@@ -57,7 +57,7 @@ const PosCheckoutComponent = () => {
   }, [router, setUser]);
 
   const handleCaminhosButton = () => {
-    router.push("/caminhos");
+    router.push("/");
   };
 
   const SuccessComponent = () => (
