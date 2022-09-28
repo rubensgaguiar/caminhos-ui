@@ -12,11 +12,11 @@ const SignUp: FunctionComponent = () => {
   const [email, setEmail] = useState(undefined);
   const [password, setPassword] = useState(undefined);
 
-  const handleEmail = (event) => {
+  const handleEmail = (event: any) => {
     setEmail(event.target.value);
   };
 
-  const handlePassword = (event) => {
+  const handlePassword = (event: any) => {
     setPassword(event.target.value);
   };
 
@@ -33,11 +33,6 @@ const SignUp: FunctionComponent = () => {
     });
 
     return response.json();
-
-    // return {
-    //   id: "123",
-    //   email: "asas%40asda.com",
-    // };
   };
 
   const handleSignup = () => {

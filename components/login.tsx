@@ -18,11 +18,11 @@ const Login = () => {
     window.location.href = "https://www.ailo.ai";
   };
 
-  const handleEmail = (event) => {
+  const handleEmail = (event: any) => {
     setEmail(event.target.value);
   };
 
-  const handlePassword = (event) => {
+  const handlePassword = (event: any) => {
     setPassword(event.target.value);
   };
 
@@ -39,13 +39,6 @@ const Login = () => {
     });
 
     return response.json();
-
-    // return {
-    //   userId: "123",
-    //   email: "123",
-    //   payment_status: "paid",
-    //   token: "Bearer 123"
-    // };
   };
 
   const handleLogin = () => {

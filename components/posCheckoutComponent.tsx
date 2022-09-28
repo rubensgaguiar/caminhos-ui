@@ -37,10 +37,6 @@ const PosCheckoutComponent = () => {
     });
 
     return response.json();
-
-    // return {
-    //   payment_status: "paid"
-    // };
   };
 
   useEffect(() => {

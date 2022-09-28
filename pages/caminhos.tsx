@@ -532,10 +532,6 @@ const Caminhos: NextPage = () => {
   const [selectedValue, setSelectedValue] = useState(caminhos[0]);
 
   const customerPortal = async () => {
-    // await fetch("/costumer-portal", {
-    //   method: "GET",
-    //   redirect: "follow",
-    // });
     window.location.href = "https://billing.stripe.com/p/login/test_aEU5mE7Bz2SOcuY9AA"
   };
 
