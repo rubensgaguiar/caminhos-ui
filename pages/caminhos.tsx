@@ -18,6 +18,7 @@ import { useUserStore } from "../store/store";
 const caminhos: Caminho[] = [
   {
     title: "Lógica de Programação",
+    img: "/logica.jpeg",
     short_description: "Comece a pensar como um programador.",
     description: [
       "Nós separamos um material de lógica de programação que traz desde uma leve introdução a computação até um curso muito completo e intuitivo sobre lógica de programação.",
@@ -43,12 +44,12 @@ const caminhos: Caminho[] = [
         link: "https://www.youtube.com/watch?v=MyMM6xCviBk",
       },
     ],
-    img: "/logica.jpg",
     extras_description: "",
     extras: [],
   },
   {
     title: "Python",
+    img: "/python.jpeg",
     short_description:
       "Aprenda a Linguagem de Programação Python e crie seus primeiros softwares.",
     description: [
@@ -72,7 +73,6 @@ const caminhos: Caminho[] = [
         link: "https://www.youtube.com/playlist?list=PLHz_AreHm4dksnH2jVTIVNviIMBVYyFnH",
       },
     ],
-    img: "/python.jpeg",
     extras_description: "",
     extras: [
       {
@@ -84,6 +84,7 @@ const caminhos: Caminho[] = [
   },
   {
     title: "Estrutura de Dados",
+    img: "/estruturadedados.jpeg",
     short_description:
       "Aprenda a organizar e processar dados, uma das habilidades mais úteis da programação.",
     description: [
@@ -98,12 +99,12 @@ const caminhos: Caminho[] = [
         link: "https://www.youtube.com/playlist?list=PL5TJqBvpXQv5Bb71AE5Cd_kB5rNsfU4Cp",
       },
     ],
-    img: "/python.jpeg",
     extras_description: "",
     extras: [],
   },
   {
     title: "Algoritmos",
+    img: "/algoritmos.jpeg",
     short_description:
       "Aprenda algoritmos constantemente cobrados em entrevistas de emprego.",
     description: [
@@ -160,7 +161,6 @@ const caminhos: Caminho[] = [
         link: "https://leetcode.com/explore/learn/card/sorting/",
       },
     ],
-    img: "/python.jpeg",
     extras_description: "",
     extras: [
       {
@@ -172,6 +172,7 @@ const caminhos: Caminho[] = [
   },
   {
     title: "Trabalhando com Terminal",
+    img: "/terminal.jpeg",
     short_description:
       "Conheça o terminal, uma das ferramentas mais poderosas do desenvolvedor.",
     description: [
@@ -224,12 +225,12 @@ const caminhos: Caminho[] = [
         link: "https://www.youtube.com/watch?v=D2cjJgSmf0E",
       },
     ],
-    img: "/python.jpeg",
     extras_description: "",
     extras: [],
   },
   {
     title: "GIT",
+    img: "/git.jpeg",
     short_description:
       "Gerencie seus projetos com essa tecnologia presente em praticamente todas as empresas de software.",
     description: [
@@ -252,7 +253,6 @@ const caminhos: Caminho[] = [
         link: "https://rogerdudler.github.io/git-guide/index.pt_BR.html",
       },
     ],
-    img: "/python.jpeg",
     extras_description: "Caso queira saber mais sobre GIT:",
     extras: [
       {
@@ -291,6 +291,7 @@ const caminhos: Caminho[] = [
   },
   {
     title: "Código Limpo",
+    img: "/codigolimpo.jpeg",
     short_description:
       "Comece a escrever códigos limpos e se destaque no mundo da computação.",
     description: [
@@ -306,7 +307,6 @@ const caminhos: Caminho[] = [
         link: "https://balta.io/artigos/clean-code",
       },
     ],
-    img: "/python.jpeg",
     extras_description:
       "Caso faça sentido para você, existe também o livro Clean Code que me ajudou bastante e é uma leitura bastante recomendada no mundo da programação:",
     extras: [
@@ -318,6 +318,7 @@ const caminhos: Caminho[] = [
   },
   {
     title: "Entrevistas de Emprego",
+    img: "/entrevistas.jpeg",
     short_description:
       "Chegou a hora de decifrar a mente dos entrevistadores de vagas de tecnologia.",
     description: [
@@ -371,12 +372,12 @@ const caminhos: Caminho[] = [
         link: "https://www.youtube.com/watch?v=vGQSG_YnTOw",
       },
     ],
-    img: "/python.jpeg",
     extras_description: "",
     extras: [],
   },
   {
     title: "Como a Internet Funciona",
+    img: "/internet.jpeg",
     short_description:
       "Descubra como a internet funciona por debaixo dos cabos.",
     description: [
@@ -408,12 +409,12 @@ const caminhos: Caminho[] = [
         link: "https://www.youtube.com/watch?v=iSqf2iPqJNM&list=PLHz_AreHm4dkZ9-atkcmcBaMZdmLHft8n&index=10",
       },
     ],
-    img: "/python.jpeg",
     extras_description: "",
     extras: [],
   },
   {
     title: "Banco de Dados",
+    img: "/bancodedados.jpeg",
     short_description:
       "Aprenda sobre os principais bancos de dados e como eles funcionam.",
     description: [
@@ -440,12 +441,12 @@ const caminhos: Caminho[] = [
         link: "https://www.youtube.com/watch?v=x9tC0eK0GtA",
       },
     ],
-    img: "/python.jpeg",
     extras_description: "",
     extras: [],
   },
   {
     title: "API",
+    img: "/api.jpeg",
     short_description:
       "Conheça e construa interfaces de comunicação entre aplicações na internet.",
     description: [
@@ -480,7 +481,6 @@ const caminhos: Caminho[] = [
         link: "https://www.youtube.com/watch?v=ieGA91ExOH0",
       },
     ],
-    img: "/python.jpeg",
     extras_description: "",
     extras: [
       {
@@ -491,6 +491,7 @@ const caminhos: Caminho[] = [
   },
   {
     title: "Desenvolvimento Web",
+    img: "/desenvolvimentoweb.jpeg",
     short_description:
       "Aprenda como desenvolver um sistema de forma profissional.",
     description: [
@@ -506,7 +507,6 @@ const caminhos: Caminho[] = [
         link: "https://evolutio.io/curso/djavue",
       },
     ],
-    img: "/python.jpeg",
     extras_description: "",
     extras: [],
   },
