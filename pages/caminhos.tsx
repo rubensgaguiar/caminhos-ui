@@ -25,7 +25,7 @@ const caminhos: Caminho[] = [
       "Aqui você também vai encontrar um resumo sobre o teste de mesa que vai te ajudar a testar melhor seus programas e também uma leve introdução sobre funções, para você ir se familiarizando com o assunto.",
       "Aproveite o caminho!​",
     ],
-    youtubeId: "rh65Lh5V7S0",
+    youtubeId: "",
     caminho: [
       {
         title: "Introdução à computação",
@@ -589,15 +589,18 @@ const Caminhos: NextPage = () => {
         <p className={styles.description}>Aprenda programação!</p>
 
         <Grid container spacing={4}>
-          {caminhos.map((caminho, index) => (
-            <ImgMediaCard
-              key={index}
-              img={caminho.img}
-              title={caminho.title}
-              short_description={caminho.short_description}
-              onClick={() => handleClickOpen(index)}
-            />
-          ))}
+          {caminhos.map((caminho, index) => {
+            const title = (index + 1) + ". " + caminho.title
+            return (
+              <ImgMediaCard
+                key={index}
+                img={caminho.img}
+                title={title}
+                short_description={caminho.short_description}
+                onClick={() => handleClickOpen(index)}
+              />
+            )
+          })}
         </Grid>
 
         <SimpleDialog
