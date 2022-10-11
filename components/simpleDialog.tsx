@@ -63,6 +63,14 @@ function SimpleDialog(props: SimpleDialogProps) {
           videoId={selectedValue.youtubeId}
         />
         <TitleTypography variant="h6">
+          Recomendações
+        </TitleTypography> 
+        {selectedValue.description.map((paragraph: string) => (
+          <TextTypography key={0}>
+            {paragraph}
+          </TextTypography>
+        ))}
+        <TitleTypography variant="h6">
           Caminho
         </TitleTypography> 
         {selectedValue.caminho.map((checkpoint: Checkpoint, index: number) => (
@@ -71,14 +79,6 @@ function SimpleDialog(props: SimpleDialogProps) {
             <Link href={checkpoint.link} target="_blank" rel="noopener">
               {checkpoint.title}
             </Link>
-          </TextTypography>
-        ))}
-        <TitleTypography variant="h6">
-          Descrição
-        </TitleTypography> 
-        {selectedValue.description.map((paragraph: string) => (
-          <TextTypography key={0}>
-            {paragraph}
           </TextTypography>
         ))}
         {
