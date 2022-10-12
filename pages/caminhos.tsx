@@ -532,7 +532,7 @@ const Caminhos: NextPage = () => {
   const [selectedValue, setSelectedValue] = useState(caminhos[0]);
 
   const customerPortal = async () => {
-    window.location.href = "https://billing.stripe.com/p/login/test_aEU5mE7Bz2SOcuY9AA"
+    window.location.href = "https://billing.stripe.com/p/login/6oEcP1auv00U8CYcMM"
   };
 
   const logout = async () => {
