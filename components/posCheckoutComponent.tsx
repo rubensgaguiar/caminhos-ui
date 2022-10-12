@@ -131,6 +131,7 @@ const PosCheckoutComponent = () => {
           'https://connect.facebook.net/en_US/fbevents.js');
           fbq('init', '579978647132421');
           fbq('track', 'PageView');
+          fbq('track', 'Purchase', {currency: "BRL", value: 9.90});
           `,
         }}
       />
