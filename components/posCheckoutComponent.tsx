@@ -83,6 +83,9 @@ const PosCheckoutComponent = () => {
     <main className={styles.main}>
       <h1 className={styles.title}>Ocorreu algum erro no pagamento :/</h1>
       <h1 className={styles.title}>Estamos trabalhando para resolver isso.</h1>
+      <p className={styles.description}>
+        Caso necessário, entrem contato em: contato@ailo.ai
+      </p>
     </main>
   );
 
