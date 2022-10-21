@@ -20,7 +20,7 @@ const HomePage: NextPage = () => {
         <title>Ailo</title>
         <meta name="description" content="Ailo" />
         <link rel="icon" href="/favicon.ico" />
-        <meta name="facebook-domain-verification" content="u2z3gxwuedll1qx1fwqxectriy53ar" />
+        <meta name="facebook-domain-verification" content="bfd7j4wcyt8xvqdroxj409xk5izg7u" />
       </Head>
 
       <main className={styles.main}>
