@@ -79,7 +79,7 @@ const SignUp: FunctionComponent = () => {
       </Grid>
       <Grid item>
         <Button variant="contained" onClick={handleSignup}>
-          Finalizar Checkout
+          Criar Conta
         </Button>
       </Grid>
       <Grid item>
