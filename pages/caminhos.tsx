@@ -586,7 +586,7 @@ const Caminhos: NextPage = () => {
 
         <h1 className={styles.title}>Caminhos</h1>
 
-        <p className={styles.description}>Aprenda programação!</p>
+        <p className={styles.description}>Aprenda programação do zero seguindo a ordem sugerida!</p>
 
         <Grid container spacing={4}>
           {caminhos.map((caminho, index) => {

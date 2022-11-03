@@ -4,11 +4,15 @@ import { useRouter } from "next/router";
 
 import { Button, Grid, TextField } from "@mui/material";
 
+import MessageSnackBar from "./messageSnackBar";
+
 import { redirectToCheckout } from "../utils/checkout";
 
 const SignUp: FunctionComponent = () => {
   const router = useRouter();
 
+  const [open, setOpen] = useState(false);
+  const [error, setError] = useState("Ocorreu um erro!");
   const [email, setEmail] = useState(undefined);
   const [password, setPassword] = useState(undefined);
 
@@ -43,15 +47,20 @@ const SignUp: FunctionComponent = () => {
         // pegar informacoes de id e email e redirecionar para:
         redirectToCheckout(res.id, res.email);
       })
-      .catch((err) => console.log(err));
+      .catch((err) => setOpen(true));
   };
 
   const handleLogin = () => {
     router.push("/");
   };
 
+  const handleClose = () => {
+    setOpen(false);
+  };
+
   return (
     <Grid container spacing={2} direction="column" alignItems="center">
+      <MessageSnackBar open={open} error={error} handleClose={handleClose} />
       <Grid item>
         <TextField
           id="outlined-basic"

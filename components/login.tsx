@@ -4,6 +4,8 @@ import { Button, Grid, TextField } from "@mui/material";
 
 import { useRouter } from "next/router";
 
+import MessageSnackBar from "./messageSnackBar";
+
 import { useUserStore } from "../store/store";
 import { redirectToCheckout } from "../utils/checkout";
 
@@ -11,11 +13,18 @@ const Login = () => {
   const router = useRouter();
   const setUser = useUserStore((state: any) => state.setUser);
 
+  const [open, setOpen] = useState(false);
+  const [error, setError] = useState("Ocorreu um erro!");
+
   const [email, setEmail] = useState(undefined);
   const [password, setPassword] = useState(undefined);
 
   const redirectLandingPage = () => {
     window.location.href = "https://www.ailo.ai";
+  };
+
+  const handleClose = () => {
+    setOpen(false);
   };
 
   const handleEmail = (event: any) => {
@@ -46,7 +55,7 @@ const Login = () => {
       .then((res) => {
         if (res.payment_status !== "paid") {
           // redirect to checkout
-          redirectToCheckout(res.id, res.email)
+          redirectToCheckout(res.id, res.email);
           return;
         }
 
@@ -58,11 +67,12 @@ const Login = () => {
 
         router.push("/caminhos");
       })
-      .catch((err) => console.log(err));
+      .catch((err) => setOpen(true));
   };
 
   return (
     <Grid container spacing={2} direction="column" alignItems="center">
+      <MessageSnackBar open={open} error={error} handleClose={handleClose} />
       <Grid item>
         <TextField
           id="outlined-basic"
